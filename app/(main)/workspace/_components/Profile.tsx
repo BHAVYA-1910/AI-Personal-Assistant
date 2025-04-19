@@ -93,13 +93,13 @@ function Profile({openDialog , setOpenDialog}:any) {
         rzp.open();
     }
 
-    const cancelSubscription = async () => {
-        const result = await axios.post('/api/cancel-subscription',{
-            subId: user?.orderId
-        });
-        toast('Subscription Canceled')
-        window.location.reload();
-    }
+    // const cancelSubscription = async () => {
+    //     const result = await axios.post('/api/cancel-subscription',{
+    //         subId: user?.orderId
+    //     });
+    //     toast('Subscription Canceled')
+    //     window.location.reload();
+    // }
 
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
@@ -140,7 +140,7 @@ function Profile({openDialog , setOpenDialog}:any) {
                                     <Button className='w-full' disabled={loading} onClick={GenerateSubscription}> {loading? <Loader2Icon className='animate-spin'/> : <WalletCardsIcon/>} Upgrade (10$) </Button>
                                 </div>
                                 :
-                                <Button className='mt-4 w-full' variant={"secondary"} onClick={cancelSubscription}>Cancel Subscription</Button>
+                                <Button className='mt-4 w-full' variant={"secondary"} >Cancel Subscription</Button>
                                 }
 
                           </div>
